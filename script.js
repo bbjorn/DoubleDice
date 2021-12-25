@@ -10,8 +10,24 @@ rollbtn.addEventListener('click', () => {
     clearRolls(die2)
 
     die1.classList.add("die-roll"+roll1)
-
     die2.classList.add("die-roll"+roll2)
+
+    deactiveSides(die1)
+    deactiveSides(die2)
+    
+    setTimeout(() => {
+        activateSide(die1, roll1)
+        activateSide(die2, roll2)        
+    }, 10000);
+
+    setTimeout(() => {
+        clearRolls(die1)
+        clearRolls(die2)
+
+
+        die1.classList.add("die-"+roll1+"-up")
+        die2.classList.add("die-"+roll2+"-up")
+    }, 10200)
 })
 
 const randomDieRoll = () => {
@@ -30,10 +46,28 @@ const testRoller = () => {
 }
 
 const clearRolls = (die) => {
-    die.classList.remove("die-roll2")
-    die.classList.remove("die-roll1")
-    die.classList.remove("die-roll3")
-    die.classList.remove("die-roll4")
-    die.classList.remove("die-roll5")
-    die.classList.remove("die-roll6")
+        for( let i = 1; i<=6; i++){
+        if(die.classList.contains("die-roll"+i)){
+            die.classList.remove("die-roll"+i)
+        }
+        if(die.classList.contains("die-"+i+"-up")){
+            die.classList.remove("die-"+i+"-up")
+        }
+    }
+}
+
+const activateSide = (die, roll) => {
+    Array.from(die.children).map((child) => {
+        if(child.classList.contains("side"+roll)){
+            child.classList.add("active-side")
+        }
+    })
+}
+
+const deactiveSides = (die) => {
+    Array.from(die.children).map((child) => {
+        if(child.classList.contains("active-side")){
+            child.classList.remove("active-side")
+        }
+    })
 }

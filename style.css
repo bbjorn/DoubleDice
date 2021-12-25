@@ -54,7 +54,7 @@ main {
   top: -2.5em;
   aspect-ratio: 1/1;
   transform-style: preserve-3d;
-  transition: all 500ms linear;
+  /* transition: all 500ms linear; */
 }
 
 .die-1 {
@@ -63,6 +63,7 @@ main {
 
 .die-2 {
   left: 1em;
+  animation-delay: 200ms;
 }
 
 .die-1-up {
@@ -97,6 +98,7 @@ main {
   place-items: center;
   background-color: var(--clr-dice);
   background-image: radial-gradient(circle at center, transparent, #0007);
+  color: hsl(var(--hue), 60%, 30%);
   /* display: none; */
 }
 
@@ -122,6 +124,11 @@ main {
 
 .side6 {
   transform: rotateX(-90deg) rotateZ(-45deg) translateZ(1em);
+}
+
+.active-side {
+  text-shadow: 0 0 0.2em white, 0 0 0.5em white, 0 0 0.5em white;
+  color: white;
 }
 
 .die-roll1 {
