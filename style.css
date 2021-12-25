@@ -1,8 +1,8 @@
 :root {
   --hue: 0;
   --sat: 50%;
-  --dark: 20%;
-  --light: 80%;
+
+  --clr-dice: hsl(var(--hue), 100%, 60%);
 }
 
 *,
@@ -22,8 +22,9 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-size: 75px;
+  font-size: 10vmin;
   perspective: 10em;
+  perspective-origin: 50% 0em;
 }
 .scene {
   position: relatives;
@@ -34,8 +35,8 @@ main {
   position: absolute;
   width: 10em;
   aspect-ratio: 1/1;
-  background: lawngreen;
-
+  background: green;
+  opacity: 0.7;
   top: 1em;
   transform: translate(-50%, -50%) rotateX(90deg);
 }
@@ -46,9 +47,60 @@ main {
   top: -1em;
   left: -1em;
   aspect-ratio: 1/1;
-  background: white;
+  transform-style: preserve-3d;
+
+  /* background-color: pink; */
+
+  /* 1 */
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+  /* 2 */
+  /* transform: rotatex(-90deg) rotateZ(135deg) rotateY(135deg); */
+
+  /* 3 */
+  /* transform: rotatex(90deg) rotateZ(45deg) rotateY(45deg); */
+
+  /* 4s */
+  /* transform: rotatex(-90deg) rotateZ(135deg) rotateY(45deg); */
+
+  /* 5 */
+  /* transform: rotatex(90deg) rotateZ(45deg) rotateY(135deg); */
+
+  /* 6 */
+  /* transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg); */
 }
 
 .side {
-  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--clr-dice);
+  background-image: radial-gradient(circle at center, transparent, #0007);
+  /* display: none; */
+}
+
+.side1 {
+  transform: rotateX(90deg) rotateZ(45deg) translateZ(1em);
+}
+
+.side2 {
+  transform: rotateY(45deg) translateZ(1em);
+}
+
+.side3 {
+  transform: rotateY(-45deg) translateZ(1em);
+}
+
+.side4 {
+  transform: rotateY(-225deg) translateZ(1em);
+}
+
+.side5 {
+  transform: rotateY(225deg) translateZ(1em);
+}
+
+.side6 {
+  transform: rotateX(-90deg) rotateZ(-45deg) translateZ(1em);
 }
