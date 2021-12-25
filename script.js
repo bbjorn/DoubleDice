@@ -1,7 +1,15 @@
 const die1 = document.getElementById("die1")
 const die2 = document.getElementById("die2")
 const rollbtn = document.getElementById("rollbtn")
+const outcome1 = document.getElementById("outcome1")
+const outcome2 = document.getElementById("outcome2")
+
 let clicked = false
+
+const outcomeText1 = ["one", "two", "three", "four", "five", "six"]
+const outcomeText2 = ["one", "two", "three", "four", "five", "six"]
+
+console.log(outcome1);
 
 rollbtn.addEventListener('click', () => {
     if (!clicked){
@@ -30,7 +38,9 @@ const rollDice = () => {
     
     setTimeout(() => {
         activateSide(die1, roll1)
-        activateSide(die2, roll2)        
+        activateSide(die2, roll2)   
+        outcome1.innerText = outcomeText1[roll1-1]
+        outcome2.innerText = outcomeText1[roll2-1] 
     }, 10000);
     
     setTimeout(() => {

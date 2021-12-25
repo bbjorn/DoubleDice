@@ -9,6 +9,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -58,7 +59,7 @@ main {
 }
 
 .die-1 {
-  left: -2em;
+  left: -3em;
 }
 
 .die-2 {
@@ -196,17 +197,27 @@ main {
   bottom: 0;
   min-height: 5em;
   background-color: var(--clr-floor);
-  padding: 1em;
+  padding: 1em 1em 3em;
   display: grid;
   place-items: centers;
+  gap: 1em;
+  border-top: solid 0.5em hsl(var(--hue), 60%, 25%);
+}
+
+.main-footer p {
+  text-align: center;
+  margin: 0;
+  color: white;
 }
 
 .btn {
+  padding: 0.5em 1em;
   cursor: pointer;
   background-color: #0006;
   color: var(--clr-dice);
   border: none;
   outline: 2px solid;
+  font-weight: 600;
 }
 
 .btn:hover,
@@ -215,12 +226,12 @@ main {
 }
 
 .btn--disabled {
-  color: gray;
-  background-color: #0004;
+  color: hsl(var(--hue), 20%, 60%);
+  background-color: hsl(var(--hue), 20%, 40%);
 }
 
 .btn--disabled:hover,
 .btn--disabled:focus {
   cursor: unset;
-  border: darkgray;
+  outline: 2px solid;
 }
