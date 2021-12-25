@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="mobile-overflow-fix">
-        <header id="main-header" class="main-header">
+        <header id="main-header" class="main-header" data-show-options="false">
             <h1 class="title">Double Dice</h1>
             <button id="toggle-options" class="toggle-options"><div class="burger">
                 <div class="bar bar__top"></div>
@@ -18,7 +18,8 @@
                 <div class="bar bar__bottom"></div>
             </div></button>
             <div id="options" class="options">
-
+                <input type="range" id="colour-setter" class="colour-setter" name="colour" min="0" max="360" value="200">
+                <label for="colour">Colour</label>
             </div>
             <div id="options-shadow" class="options-shadow"></div>
         </header>

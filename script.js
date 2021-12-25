@@ -1,3 +1,8 @@
+if (localStorage.getItem('diceColour')){
+    document.documentElement.style.setProperty('--hue', localStorage.getItem('diceColour'));
+}
+    
+
 const DIE_WITH_NUMBERS = `<div class="side side1"><p>1</p></div>
 <div class="side side2"><p>2</p></div>
 <div class="side side3"><p>3</p></div>
@@ -49,10 +54,28 @@ const mainHeader = document.getElementById("main-header")
 const options = document.getElementById("options")
 const optionsShadow = document.getElementById("options-shadow")
 const toggleOptions = document.getElementById("toggle-options")
+const colourSetter = document.getElementById("colour-setter")
 
+toggleOptions.addEventListener('click', () => {
+    
+    const showOptions = mainHeader.getAttribute("data-show-options")
+    
+    if (showOptions === "true"){
+        mainHeader.setAttribute("data-show-options", "false")
+    } else {
+        mainHeader.setAttribute("data-show-options", "true")
+    }
+})
 
+optionsShadow.addEventListener('click', () => {
+    mainHeader.setAttribute("data-show-options", "false")
+})
 
-
+colourSetter.addEventListener('change', (e) => {
+    const colour = e.target.value;
+    document.documentElement.style.setProperty('--hue', colour);
+    localStorage.setItem('diceColour', colour);
+})
 
 let clicked = false
 
@@ -62,6 +85,14 @@ const outcomeText2 = ["one", "two", "three", "four", "five", "six"]
 console.log(outcome1);
 
 rollbtn.addEventListener('click', () => {
+    roll()
+})
+
+die1.addEventListener('click', () => {
+    roll()
+})
+
+die2.addEventListener('click', () => {
     roll()
 })
 
