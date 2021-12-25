@@ -1,0 +1,54 @@
+:root {
+  --hue: 0;
+  --sat: 50%;
+  --dark: 20%;
+  --light: 80%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 75px;
+  perspective: 10em;
+}
+.scene {
+  position: relatives;
+  transform-style: preserve-3d;
+}
+
+.floor {
+  position: absolute;
+  width: 10em;
+  aspect-ratio: 1/1;
+  background: lawngreen;
+
+  top: 1em;
+  transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+.die {
+  position: absolute;
+  width: 2em;
+  top: -1em;
+  left: -1em;
+  aspect-ratio: 1/1;
+  background: white;
+}
+
+.side {
+  display: none;
+}
