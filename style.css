@@ -1,8 +1,8 @@
 :root {
-  --hue: 0;
-  --sat: 50%;
+  --hue: 200;
 
-  --clr-dice: hsl(var(--hue), 100%, 60%);
+  --clr-dice: hsl(var(--hue), 80%, 65%);
+  --clr-floor: hsl(var(--hue), 60%, 50%);
 }
 
 *,
@@ -24,7 +24,7 @@ main {
   min-height: 100vh;
   font-size: 10vmin;
   perspective: 10em;
-  perspective-origin: 50% 0em;
+  perspective-origin: 50% -2em;
 }
 .scene {
   position: relatives;
@@ -33,9 +33,15 @@ main {
 
 .floor {
   position: absolute;
-  width: 10em;
+  width: 15em;
   aspect-ratio: 1/1;
-  background: green;
+  background-color: var(--clr-floor);
+  background-image: radial-gradient(
+    circle at center,
+    transparent 10%,
+    #000 80%
+  );
+
   opacity: 0.7;
   top: 1em;
   transform: translate(-50%, -50%) rotateX(90deg);
@@ -44,30 +50,42 @@ main {
 .die {
   position: absolute;
   width: 2em;
-  top: -1em;
-  left: -1em;
+  top: -2.5em;
   aspect-ratio: 1/1;
   transform-style: preserve-3d;
+  transition: all 500ms linear;
+}
 
-  /* background-color: pink; */
+.die-1 {
+  left: -2em;
+}
 
-  /* 1 */
+.die-2 {
+  left: 1em;
+}
+
+.die-1-up {
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
 
-  /* 2 */
-  /* transform: rotatex(-90deg) rotateZ(135deg) rotateY(135deg); */
+.die-2-up {
+  transform: rotatex(-90deg) rotateZ(135deg) rotateY(135deg);
+}
 
-  /* 3 */
-  /* transform: rotatex(90deg) rotateZ(45deg) rotateY(45deg); */
+.die-3-up {
+  transform: rotatex(90deg) rotateZ(45deg) rotateY(45deg);
+}
 
-  /* 4s */
-  /* transform: rotatex(-90deg) rotateZ(135deg) rotateY(45deg); */
+.die-4-up {
+  transform: rotatex(-90deg) rotateZ(135deg) rotateY(45deg);
+}
 
-  /* 5 */
-  /* transform: rotatex(90deg) rotateZ(45deg) rotateY(135deg); */
+.die-5-up {
+  transform: rotatex(90deg) rotateZ(45deg) rotateY(135deg);
+}
 
-  /* 6 */
-  /* transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg); */
+.die-6-up {
+  transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg);
 }
 
 .side {
@@ -103,4 +121,63 @@ main {
 
 .side6 {
   transform: rotateX(-90deg) rotateZ(-45deg) translateZ(1em);
+}
+
+.die-roll1 {
+  animation: dieroll1 10s ease-out forwards;
+}
+
+.die-roll2 {
+  animation: dieroll2 10s ease-out forwards;
+}
+
+.die-roll3 {
+  animation: dieroll3 10s ease-out forwards;
+}
+
+.die-roll4 {
+  animation: dieroll4 10s ease-out forwards;
+}
+
+.die-roll5 {
+  animation: dieroll5 10s ease-out forwards;
+}
+
+.die-roll6 {
+  animation: dieroll6 10s ease-out forwards;
+}
+
+@keyframes dieroll1 {
+  100% {
+    transform: rotateX(-3600deg);
+  }
+}
+
+@keyframes dieroll2 {
+  100% {
+    transform: rotatex(-3690deg) rotateZ(135deg) rotateY(135deg);
+  }
+}
+@keyframes dieroll3 {
+  100% {
+    transform: rotateX(-3510deg) rotateZ(45deg) rotateY(45deg);
+  }
+}
+
+@keyframes dieroll4 {
+  100% {
+    transform: rotateX(-3690deg) rotateZ(135deg) rotateY(45deg);
+  }
+}
+
+@keyframes dieroll5 {
+  100% {
+    transform: rotateX(-3510deg) rotateZ(45deg) rotateY(135deg);
+  }
+}
+
+@keyframes dieroll6 {
+  100% {
+    transform: rotateX(-3510deg) rotateY(90deg) rotateZ(90deg);
+  }
 }
