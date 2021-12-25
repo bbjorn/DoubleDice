@@ -195,8 +195,32 @@ main {
   width: 100vw;
   bottom: 0;
   min-height: 5em;
-  background-color: pink;
+  background-color: var(--clr-floor);
   padding: 1em;
   display: grid;
   place-items: centers;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #0006;
+  color: var(--clr-dice);
+  border: none;
+  outline: 2px solid;
+}
+
+.btn:hover,
+.btn:focus {
+  outline: 4px solid;
+}
+
+.btn--disabled {
+  color: gray;
+  background-color: #0004;
+}
+
+.btn--disabled:hover,
+.btn--disabled:focus {
+  cursor: unset;
+  border: darkgray;
 }
