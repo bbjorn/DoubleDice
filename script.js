@@ -1,8 +1,3 @@
-if (localStorage.getItem('diceColour')){
-    document.documentElement.style.setProperty('--hue', localStorage.getItem('diceColour'));
-}
-    
-
 const DIE_WITH_NUMBERS = `<div class="side side1"><p>1</p></div>
 <div class="side side2"><p>2</p></div>
 <div class="side side3"><p>3</p></div>
@@ -55,9 +50,9 @@ const options = document.getElementById("options")
 const optionsShadow = document.getElementById("options-shadow")
 const toggleOptions = document.getElementById("toggle-options")
 const colourSetter = document.getElementById("colour-setter")
+const diceSetter = document.getElementById("select-dice")
 
 toggleOptions.addEventListener('click', () => {
-    
     const showOptions = mainHeader.getAttribute("data-show-options")
     
     if (showOptions === "true"){
@@ -77,12 +72,34 @@ colourSetter.addEventListener('change', (e) => {
     localStorage.setItem('diceColour', colour);
 })
 
+diceSetter.addEventListener('change', e => {
+    const diceType = e.target.value;
+    localStorage.setItem('diceType', diceType);
+    changeDice(diceType);
+})
+
+
+const changeDice = (diceType) => {
+    switch (diceType) {
+        case 'dots':
+            die1.innerHTML = DIE_WITH_DOTS;
+            die2.innerHTML = DIE_WITH_DOTS;
+            break;
+        case 'numbers':
+            die1.innerHTML = DIE_WITH_NUMBERS;
+            die2.innerHTML = DIE_WITH_NUMBERS;
+            break;
+        default:
+            die1.innerHTML = DIE_WITH_DOTS;
+            die2.innerHTML = DIE_WITH_NUMBERS;
+            break;
+    }
+}
+
 let clicked = false
 
 const outcomeText1 = ["one", "two", "three", "four", "five", "six"]
 const outcomeText2 = ["one", "two", "three", "four", "five", "six"]
-
-console.log(outcome1);
 
 rollbtn.addEventListener('click', () => {
     roll()
@@ -178,4 +195,13 @@ const deactiveSides = (die) => {
             child.classList.remove("active-side")
         }
     })
+}
+
+if (localStorage.getItem('diceColour')){
+    document.documentElement.style.setProperty('--hue', localStorage.getItem('diceColour'));
+}
+
+if (localStorage.getItem('diceType')){
+    changeDice(localStorage.getItem('diceType'))
+    diceSetter.value = localStorage.getItem('diceType')
 }

@@ -20,6 +20,18 @@
             <div id="options" class="options">
                 <input type="range" id="colour-setter" class="colour-setter" name="colour" min="0" max="360" value="200">
                 <label for="colour">Colour</label>
+                
+                <select name="dice" id="select-dice">
+                    <option value="dots">Dots</option>
+                    <option value="numbers">Numbers</option>
+                    <option value="mixed">Mixed</option>
+                </select>
+                <label for="dice">Type of Dice</label>
+                <p>
+                    Double Dice web application<br>
+                    &copy; 2022 Björn B <br>
+                    All rights reserved
+                </p>
             </div>
             <div id="options-shadow" class="options-shadow"></div>
         </header>
@@ -62,12 +74,39 @@
                 </div>
     
                 <div id="die2" class="die die-2">
-                    <div class="side side1"><p>1</p></div>
-                    <div class="side side2"><p>2</p></div>
-                    <div class="side side3"><p>3</p></div>
-                    <div class="side side4"><p>4</p></div>
-                    <div class="side side5"><p>5</p></div>
-                    <div class="side side6"><p>6</p></div>
+                    <div class="side side1">
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side2">
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
+                    <div class="side side3">
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side4">
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
+                    <div class="side side5">
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side6">
+                        <div class="dot dot--middle-right"></div>
+                        <div class="dot dot--middle-left"></div>
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
                 </div>
                 <div class="floor"></div>
             </section>
