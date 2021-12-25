@@ -15,6 +15,7 @@ body {
   margin: 0;
   background-color: black;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 main {
@@ -180,4 +181,15 @@ main {
   100% {
     transform: rotateX(-3510deg) rotateY(90deg) rotateZ(90deg);
   }
+}
+
+.main-footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  min-height: 5em;
+  background-color: pink;
+  padding: 1em;
+  display: grid;
+  place-items: centers;
 }
