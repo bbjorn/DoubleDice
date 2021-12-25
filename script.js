@@ -1,8 +1,58 @@
+const DIE_WITH_NUMBERS = `<div class="side side1"><p>1</p></div>
+<div class="side side2"><p>2</p></div>
+<div class="side side3"><p>3</p></div>
+<div class="side side4"><p>4</p></div>
+<div class="side side5"><p>5</p></div>
+<div class="side side6"><p>6</p></div>`
+
+const DIE_WITH_DOTS = `<div class="side side1">
+<div class="dot dot--middle"></div>
+</div>
+<div class="side side2">
+<div class="dot dot--bottom-right"></div>
+<div class="dot dot--top-left"></div>
+</div>
+<div class="side side3">
+<div class="dot dot--bottom-right"></div>
+<div class="dot dot--top-left"></div>
+<div class="dot dot--middle"></div>
+</div>
+<div class="side side4">
+<div class="dot dot--top-right"></div>
+<div class="dot dot--bottom-left"></div>
+<div class="dot dot--bottom-right"></div>
+<div class="dot dot--top-left"></div>
+</div>
+<div class="side side5">
+<div class="dot dot--top-right"></div>
+<div class="dot dot--bottom-left"></div>
+<div class="dot dot--bottom-right"></div>
+<div class="dot dot--top-left"></div>
+<div class="dot dot--middle"></div>
+</div>
+<div class="side side6">
+<div class="dot dot--middle-right"></div>
+<div class="dot dot--middle-left"></div>
+<div class="dot dot--top-right"></div>
+<div class="dot dot--bottom-left"></div>
+<div class="dot dot--bottom-right"></div>
+<div class="dot dot--top-left"></div>
+</div>`
+
 const die1 = document.getElementById("die1")
 const die2 = document.getElementById("die2")
 const rollbtn = document.getElementById("rollbtn")
 const outcome1 = document.getElementById("outcome1")
 const outcome2 = document.getElementById("outcome2")
+
+const mainHeader = document.getElementById("main-header")
+const options = document.getElementById("options")
+const optionsShadow = document.getElementById("options-shadow")
+const toggleOptions = document.getElementById("toggle-options")
+
+
+
+
 
 let clicked = false
 
@@ -12,6 +62,10 @@ const outcomeText2 = ["one", "two", "three", "four", "five", "six"]
 console.log(outcome1);
 
 rollbtn.addEventListener('click', () => {
+    roll()
+})
+
+const roll = () => {
     if (!clicked){
         rollDice()
     }
@@ -21,7 +75,7 @@ rollbtn.addEventListener('click', () => {
         clicked = false
         rollbtn.classList.remove("btn--disabled")
     }, 10500)
-})
+}
 
 const rollDice = () => {
     const roll1 = randomDieRoll()

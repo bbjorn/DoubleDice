@@ -14,16 +14,20 @@
 
 body {
   margin: 0;
+}
+
+.mobile-overflow-fix {
   background-color: black;
   min-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   font-size: 10vmin;
   perspective: 10em;
   perspective-origin: 50% -2em;
@@ -41,7 +45,7 @@ main {
   background-image: radial-gradient(
     circle at center,
     transparent 10%,
-    #000 80%
+    #000 75%
   );
 
   opacity: 0.7;
@@ -95,12 +99,13 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
   background-color: var(--clr-dice);
   background-image: radial-gradient(circle at center, transparent, #0007);
   color: hsl(var(--hue), 60%, 30%);
-  /* display: none; */
 }
 
 .side1 {
@@ -127,9 +132,14 @@ main {
   transform: rotateX(-90deg) rotateZ(-45deg) translateZ(1em);
 }
 
-.active-side {
-  text-shadow: 0 0 0.2em white, 0 0 0.5em white, 0 0 0.5em white;
+.active-side > * {
+  box-shadow: 0 0 0.2em white, 0 0 0.5em white, 0 0 0.5em white;
   color: white;
+}
+
+.active-side > p {
+  box-shadow: none;
+  text-shadow: 0 0 0.2em white, 0 0 0.5em white, 0 0 0.5em white;
 }
 
 .die-roll1 {
@@ -191,9 +201,76 @@ main {
   }
 }
 
-.main-footer {
+.title {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.main-header {
   position: fixed;
-  width: 100vw;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem;
+}
+
+.options {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  height: 100vh;
+  width: clamp(20rem, 70vw, 40rem);
+  background: hsl(var(--hue), 60%, 25%);
+  transform: translateX(120%);
+}
+
+.options-shadow {
+  position: absolute;
+  background-color: #0008;
+  height: 100vh;
+  inset: 0;
+  transform: translateX(120%);
+}
+
+.toggle-options {
+  position: absolute;
+  top: 2.5em;
+  right: 1.5em;
+  z-index: 9999;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.burger {
+  width: 2.2em;
+  aspect-ratio: 1;
+  border: 0.2em solid white;
+  border-radius: 0.2em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bar {
+  height: 0.2em;
+  width: 1.5em;
+  background-color: white;
+  border-radius: 0.2em;
+}
+
+.main-footer {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
   bottom: 0;
   min-height: 5em;
   background-color: var(--clr-floor);
@@ -234,4 +311,41 @@ main {
 .btn--disabled:focus {
   cursor: unset;
   outline: 2px solid;
+}
+
+.dot {
+  background-color: currentColor;
+  position: absolute;
+  height: 0.4em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  --dot-dist: 0.3em;
+}
+
+.dot--top-left {
+  left: var(--dot-dist);
+  top: var(--dot-dist);
+}
+
+.dot--top-right {
+  top: var(--dot-dist);
+  right: var(--dot-dist);
+}
+
+.dot--bottom-left {
+  bottom: var(--dot-dist);
+  left: var(--dot-dist);
+}
+
+.dot--bottom-right {
+  bottom: var(--dot-dist);
+  right: var(--dot-dist);
+}
+
+.dot--middle-left {
+  left: var(--dot-dist);
+}
+
+.dot--middle-right {
+  right: var(--dot-dist);
 }

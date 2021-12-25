@@ -9,37 +9,75 @@
     <title>🎲Double Dice🎲</title>
 </head>
 <body>
-    <header class="main-header">
-        <button class="hamburger">X</button>
-    </header>
-    <main>
-        <section class="scene">
-            <div id="die1" class="die die-1">
-                <div class="side side1">1</div>
-                <div class="side side2">2</div>
-                <div class="side side3">3</div>
-                <div class="side side4">4</div>
-                <div class="side side5">5</div>
-                <div class="side side6">6</div>
-            </div>
+    <div class="mobile-overflow-fix">
+        <header id="main-header" class="main-header">
+            <h1 class="title">Double Dice</h1>
+            <button id="toggle-options" class="toggle-options"><div class="burger">
+                <div class="bar bar__top"></div>
+                <div class="bar bar__middle"></div>
+                <div class="bar bar__bottom"></div>
+            </div></button>
+            <div id="options" class="options">
 
-            <div id="die2" class="die die-2">
-                <div class="side side1">1</div>
-                <div class="side side2">2</div>
-                <div class="side side3">3</div>
-                <div class="side side4">4</div>
-                <div class="side side5">5</div>
-                <div class="side side6">6</div>
             </div>
-            <div class="floor"></div>
-        </section>
-    </main>
-    <footer class="main-footer">
-        <p>
-            <span id="outcome1"></span> - 
-            <span id="outcome2"></spans>
-        </p>
-        <button id="rollbtn" class="btn btn--roll">Roll</button>
-    </footer>
+            <div id="options-shadow" class="options-shadow"></div>
+        </header>
+        <main>
+            <section class="scene">
+                <div id="die1" class="die die-1">
+                    <div class="side side1">
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side2">
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
+                    <div class="side side3">
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side4">
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
+                    <div class="side side5">
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                        <div class="dot dot--middle"></div>
+                    </div>
+                    <div class="side side6">
+                        <div class="dot dot--middle-right"></div>
+                        <div class="dot dot--middle-left"></div>
+                        <div class="dot dot--top-right"></div>
+                        <div class="dot dot--bottom-left"></div>
+                        <div class="dot dot--bottom-right"></div>
+                        <div class="dot dot--top-left"></div>
+                    </div>
+                </div>
+    
+                <div id="die2" class="die die-2">
+                    <div class="side side1"><p>1</p></div>
+                    <div class="side side2"><p>2</p></div>
+                    <div class="side side3"><p>3</p></div>
+                    <div class="side side4"><p>4</p></div>
+                    <div class="side side5"><p>5</p></div>
+                    <div class="side side6"><p>6</p></div>
+                </div>
+                <div class="floor"></div>
+            </section>
+        </main>
+        <footer class="main-footer">
+            <p>
+                <span id="outcome1"></span> - 
+                <span id="outcome2"></spans>
+            </p>
+            <button id="rollbtn" class="btn btn--roll">Roll</button>
+        </footer>
+    </div>
 </body>
 </html>
