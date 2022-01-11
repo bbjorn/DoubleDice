@@ -375,26 +375,33 @@ select {
 }
 
 .burger .bar {
+  position: absolute;
   height: 0.2em;
   width: 1.5em;
   background-color: white;
   border-radius: 0.2em;
-  transition: transform 350ms ease;
+  transition: transform 350ms linear;
+  transform-origin: center;
+}
+
+.bar__top{
+  transform: translateY(-0.5em)
+}
+
+.bar__bottom {
+  transform: translateY(0.5em)
 }
 
 [data-show-options="true"] .bar__top {
-  transform-origin: left;
-  transform: translateX(15%) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 [data-show-options="true"] .bar__middle {
-  transform-origin: center;
   transform: scaleX(0);
 }
 
 [data-show-options="true"] .bar__bottom {
-  transform-origin: left;
-  transform: translateX(15%) rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 [data-show-options="true"] .options,
